@@ -1,12 +1,29 @@
 import React from "react";
-import Layout from "../Layout/Layout";
 import SprintGameShoes from "../../../images/Sprint-game-shoes.png";
 import Image from "next/image";
 import Button from "@/components/ui/Button/Button";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import { nanoid } from "nanoid";
+
+interface ILevel {
+  id: any;
+  name: string;
+  color: string;
+}
+
+const level = [
+  { id: nanoid(), name: "A1", color: "border-green-secondary" },
+  { id: nanoid(), name: "A2", color: "border-green-secondary" },
+  { id: nanoid(), name: "B1", color: "border-green-secondary" },
+  { id: nanoid(), name: "B2", color: "border-green-secondary" },
+  { id: nanoid(), name: "C1", color: "border-yellow-secondary" },
+  { id: nanoid(), name: "C2", color: "border-green-secondary" },
+];
 
 const SprintGameStart = () => {
+  console.log(nanoid);
+
   return (
     <Container>
       <div className="p-5 bg-primary-white rounded-xl mt-8 mb-10">
@@ -31,24 +48,16 @@ const SprintGameStart = () => {
               Chose a level
             </p>
             <div className="flex justify-around mb-5">
-              <button className="w-11 h-11 rounded-full border-4 bg-transparent border-green-secondary">
-                A1
-              </button>
-              <button className="w-11 h-11 rounded-full border-4 bg-transparent border-green-secondary">
-                A2
-              </button>
-              <button className="w-11 h-11 rounded-full border-4 bg-transparent border-green-secondary">
-                B1
-              </button>
-              <button className="w-11 h-11 rounded-full border-4 bg-transparent border-green-secondary">
-                B2
-              </button>
-              <button className="w-11 h-11 rounded-full border-4 bg-transparent border-green-secondary">
-                C1
-              </button>
-              <button className="w-11 h-11 rounded-full border-4 bg-transparent border-green-secondary">
-                C2
-              </button>
+              {level.map((item: ILevel) => {
+                return (
+                  <button
+                    key={item.id}
+                    className={`w-11 h-11 rounded-full border-4 bg-transparent ${item.color}`}
+                  >
+                    {item.name}
+                  </button>
+                );
+              })}
             </div>
             <div className="text-center">
               <Link href="/games/sprint/start">

@@ -5,13 +5,64 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Usernav from "../UserNav/Usernav";
 import userIco from "../../../images/user-ico.svg";
+import { nanoid } from "nanoid";
+
+interface INavbar {
+  id: any;
+  name: string;
+  color: string;
+  href: string;
+}
+
+const navbarDesctop = [
+  { id: nanoid(), name: "Home", color: "text-primary-black", href: "/" },
+  {
+    id: nanoid(),
+    name: "Textbook",
+    color: "text-gray-dark",
+    href: "/textbook",
+  },
+  {
+    id: nanoid(),
+    name: "Statistics",
+    color: "text-gray-dark",
+    href: "/statistics",
+  },
+  { id: nanoid(), name: "Games", color: "text-gray-dark", href: "/games" },
+];
+
+const navbarMobile = [
+  { id: nanoid(), name: "Home", color: "text-primary-white", href: "/" },
+  {
+    id: nanoid(),
+    name: "Textbook",
+    color: "text-primary-white",
+    href: "/textbook",
+  },
+  {
+    id: nanoid(),
+    name: "Statistics",
+    color: "text-primary-white",
+    href: "/statistics",
+  },
+  {
+    id: nanoid(),
+    name: "Sprint",
+    color: "text-primary-white",
+    href: "/games/sprint",
+  },
+  {
+    id: nanoid(),
+    name: "Audiocall",
+    color: "text-primary-white",
+    href: "/games/audio-call",
+  },
+];
 
 const Navbar = () => {
   const [close, setClose] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log(close);
-
     if (close) {
       document.body.style.overflow = "unset";
     } else {
@@ -26,7 +77,7 @@ const Navbar = () => {
     <Container>
       <div className="grid grid-cols-[min-content_minmax(150px,1fr)_50px] py-6 sm:grid-cols-[180px_1fr_minmax(min-content,250px)]  ">
         <Link
-          onClick={() => setClose(!close)}
+          onClick={() => setClose(true)}
           href="/"
           className=" col-start-2  mt-2 mx-auto md:col-start-1 md:mt-3"
         >
@@ -35,18 +86,17 @@ const Navbar = () => {
 
         <div className=" space-x-10 mt-2 row-start-1 md:col-start-2 md:mx-0 ">
           <nav className="hidden space-x-6  md:block">
-            <Link className=" text-primary-black font-bold" href="/">
-              Home
-            </Link>
-            <Link className=" text-gray-dark" href="/textbook">
-              Textbook
-            </Link>
-            <Link className=" text-gray-dark" href="/statistics">
-              Statistics
-            </Link>
-            <Link className=" text-gray-dark" href="/games">
-              Games
-            </Link>
+            {navbarDesctop.map((item: INavbar) => {
+              return (
+                <Link
+                  key={item.id}
+                  className={`${item.color}`}
+                  href={`${item.href}`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
 
           <div
@@ -87,41 +137,18 @@ const Navbar = () => {
       {!close && (
         <div>
           <div className="w-full h-screen space-y-5 fixed  left-0 bg-gray-dark flex flex-col justify-center items-center z-50">
-            <Link
-              onClick={() => setClose(!close)}
-              className=" text-primary-white font-bold"
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              onClick={() => setClose(!close)}
-              className=" text-primary-white"
-              href="/textbook"
-            >
-              Textbook
-            </Link>
-            <Link
-              onClick={() => setClose(!close)}
-              className=" text-primary-white"
-              href="/statistics"
-            >
-              Statistics
-            </Link>
-            <Link
-              onClick={() => setClose(!close)}
-              className=" text-primary-white"
-              href="/games"
-            >
-              Audiocall
-            </Link>
-            <Link
-              onClick={() => setClose(!close)}
-              className=" text-primary-white"
-              href="/games"
-            >
-              Sprint
-            </Link>
+            {navbarMobile.map((item: INavbar) => {
+              return (
+                <Link
+                  key={item.id}
+                  onClick={() => setClose(!close)}
+                  className={`${item.color}`}
+                  href={`${item.href}`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
