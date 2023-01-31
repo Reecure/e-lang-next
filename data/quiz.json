@@ -1,18 +1,18 @@
 [
   {
     "word": "cat",
-    "answerOption": [{ "isCorrect": false, "answerText": "chatte" }]
+    "answerOption": [{ "isCorrect": true, "answerText": "chatte" }]
   },
   {
     "word": "dog",
-    "answerOption": [{ "isCorrect": true, "answerText": "fille" }]
+    "answerOption": [{ "isCorrect": false, "answerText": "fille" }]
   },
   {
     "word": "boy",
-    "answerOption": [{ "isCorrect": false, "answerText": "garçon" }]
+    "answerOption": [{ "isCorrect": true, "answerText": "garçon" }]
   },
   {
     "word": "girl",
-    "answerOption": [{ "isCorrect": true, "answerText": "chienne" }]
+    "answerOption": [{ "isCorrect": false, "answerText": "chienne" }]
   }
 ]

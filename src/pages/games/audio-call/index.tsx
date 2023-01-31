@@ -3,9 +3,9 @@ import Layout from "@/components/common/Layout/Layout";
 
 const AudioCall = () => {
   return (
-    <>
+    <div className="max-w-md mx-auto">
       <Audiocall />
-    </>
+    </div>
   );
 };
 

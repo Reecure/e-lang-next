@@ -6,13 +6,7 @@ import Image from "next/image";
 import Usernav from "../UserNav/Usernav";
 import userIco from "../../../images/user-ico.svg";
 import { nanoid } from "nanoid";
-
-interface INavbar {
-  id: any;
-  name: string;
-  color: string;
-  href: string;
-}
+import { INavbar } from "@types";
 
 const navbarDesctop = [
   { id: nanoid(), name: "Home", color: "text-primary-black", href: "/" },
@@ -79,7 +73,7 @@ const Navbar = () => {
         <Link
           onClick={() => setClose(true)}
           href="/"
-          className=" col-start-2  mt-2 mx-auto md:col-start-1 md:mt-3"
+          className=" col-start-2  mt-2 mx-auto md:m-0 md:col-start-1 md:mt-3"
         >
           <Image className="" src={logo} alt="logo" />
         </Link>

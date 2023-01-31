@@ -5,25 +5,48 @@ import Button from "@/components/ui/Button/Button";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
 import { nanoid } from "nanoid";
-
-interface ILevel {
-  id: any;
-  name: string;
-  color: string;
-}
+import { ILevel } from "@types";
 
 const level = [
-  { id: nanoid(), name: "A1", color: "border-green-secondary" },
-  { id: nanoid(), name: "A2", color: "border-green-secondary" },
-  { id: nanoid(), name: "B1", color: "border-green-secondary" },
-  { id: nanoid(), name: "B2", color: "border-green-secondary" },
-  { id: nanoid(), name: "C1", color: "border-yellow-secondary" },
-  { id: nanoid(), name: "C2", color: "border-green-secondary" },
+  {
+    id: nanoid(),
+    name: "A1",
+    borderColor: "border-green-secondary",
+    textColor: "text-green-secondary",
+  },
+  {
+    id: nanoid(),
+    name: "A2",
+    borderColor: "border-yellow-secondary",
+    textColor: "text-yellow-secondary",
+  },
+  {
+    id: nanoid(),
+    name: "B1",
+    borderColor: "border-orange-secondary",
+    textColor: "text-orange-secondary",
+  },
+  {
+    id: nanoid(),
+    name: "B2",
+    borderColor: "border-red-secondary",
+    textColor: "text-red-secondary",
+  },
+  {
+    id: nanoid(),
+    name: "C1",
+    borderColor: "border-pink-secondary",
+    textColor: "text-pink-secondary",
+  },
+  {
+    id: nanoid(),
+    name: "C2",
+    borderColor: "border-cayan-secondary",
+    textColor: "text-cayan-secondary",
+  },
 ];
 
 const SprintGameStart = () => {
-  console.log(nanoid);
-
   return (
     <Container>
       <div className="p-5 bg-primary-white rounded-xl mt-8 mb-10">
@@ -52,7 +75,7 @@ const SprintGameStart = () => {
                 return (
                   <button
                     key={item.id}
-                    className={`w-11 h-11 rounded-full border-4 bg-transparent ${item.color}`}
+                    className={`w-11 h-11 rounded-full border-4 font-bold bg-transparent ${item.borderColor} ${item.textColor}`}
                   >
                     {item.name}
                   </button>

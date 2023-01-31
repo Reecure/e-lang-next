@@ -1,37 +1,29 @@
 import Layout from "@/components/common/Layout/Layout";
 import Button from "@/components/ui/Button/Button";
 import Container from "@/components/ui/Container/Container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import data from "../../../../data/quiz.json";
 import { IAnswerOption } from "../../../../@types";
 
 import s from "./start.module.css";
+import SprintGameResult from "@/components/common/SprintGame/SprintGameResult";
 
 const start = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
 
-  const RightAnswerHandler = () => {
+  const AnswerHandler = (option: boolean) => {
+    data[currentQuestion].answerOption.map((item: IAnswerOption) => {
+      item.isCorrect === option ? setScore(score + 10) : setScore(score + 0);
+    });
     if (currentQuestion < data.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      data[currentQuestion].answerOption.map((item: IAnswerOption) => {
-        item.isCorrect ? setScore(score + 10) : setScore(score + 0);
-      });
     } else {
       setShowScore(true);
     }
   };
-  const WrongAnswerHandler = () => {
-    if (currentQuestion < data.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      data[currentQuestion].answerOption.map((item: IAnswerOption) => {
-        !item.isCorrect ? setScore(score + 10) : setScore(score + 0);
-      });
-    } else {
-      setShowScore(true);
-    }
-  };
+
   return (
     <Container>
       {!showScore ? (
@@ -82,13 +74,13 @@ const start = () => {
             </div>
 
             <div className="flex justify-center space-x-3 mt-8 mb-20">
-              <div onClick={RightAnswerHandler}>
+              <div onClick={() => AnswerHandler(true)}>
                 <Button bgColor="bg-cayan-light" textColor="text-cayan-dark">
                   Right
                 </Button>
               </div>
 
-              <div onClick={WrongAnswerHandler}>
+              <div onClick={() => AnswerHandler(false)}>
                 <Button bgColor="bg-cayan-light" textColor="text-cayan-dark">
                   Wrong
                 </Button>
@@ -97,7 +89,9 @@ const start = () => {
           </div>
         </div>
       ) : (
-        <div>SCORE {score}</div>
+        <div className="max-w-md mx-auto">
+          <SprintGameResult score={score} words={currentQuestion + 1} />
+        </div>
       )}
     </Container>
   );

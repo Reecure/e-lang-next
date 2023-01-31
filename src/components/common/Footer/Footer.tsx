@@ -5,17 +5,49 @@ import Image from "next/image";
 import GT from "../../../images/GT.svg";
 import youtube from "../../../images/youtube.svg";
 import cat from "../../../images/Cat.svg";
+import { nanoid } from "nanoid";
+import { INavbar } from "@types";
+
+const footbar = [
+  { id: nanoid(), name: "Home", color: "text-primary-white", href: "/" },
+  {
+    id: nanoid(),
+    name: "Textbook",
+    color: "text-primary-white",
+    href: "/textbook",
+  },
+  {
+    id: nanoid(),
+    name: "Statistics",
+    color: "text-primary-white",
+    href: "/statistics",
+  },
+  {
+    id: nanoid(),
+    name: "Sprint",
+    color: "text-primary-white",
+    href: "/games/sprint",
+  },
+  {
+    id: nanoid(),
+    name: "Audiocall",
+    color: "text-primary-white",
+    href: "/games/audio-call",
+  },
+];
 
 const Footer = () => {
   return (
     <Container>
-      <div className="flex justify-around ">
+      <div className="flex justify-around md:justify-between ">
         <div className="flex flex-col sm:flex-row sm:space-x-6">
-          <Link href="/">Home</Link>
-          <Link href="/textbook">Textbook</Link>
-          <Link href="/statistics">Statistics</Link>
-          <Link href="/">Sprint</Link>
-          <Link href="/">Audio-call</Link>
+          {footbar.map((item: INavbar) => {
+            return (
+              <Link key={`${item.id}`} href={`${item.href}`}>
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
         <div className="flex flex-col  sm:flex-row sm:space-x-6">
           <p className="cursor-pointer">Alex</p>
