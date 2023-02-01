@@ -16,8 +16,8 @@ const HeaderBlock = () => {
               e-course platform
             </p>
             <div className="">
-              <h1 className="mx-auto mb-3 text-center  text-3xl font-bold sm:mb-7 sm:text-left sm:max-w-xs md:max-w-md semi-lg:text-5xl">
-                Learning and teaching online, made easy
+              <h1 className="mx-auto mb-3 text-center  text-3xl font-DelaGothicOne font-extrabold sm:mb-7 sm:text-left sm:max-w-xs md:max-w-md semi-lg:text-5xl">
+                Learning and teaching online, made easy.
               </h1>
             </div>
             <p className=" mb-5 text-sm text-center sm:mb-8 text-gray-dark sm:text-left sm:max-w-xs semi-lg:text-lg">

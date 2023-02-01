@@ -12,13 +12,13 @@ const AvailableStatistic = () => {
       <div>
         <div>
           <h5
-            className="cursor-pointer"
+            className="cursor-pointer font-DelaGothicOne"
             onClick={() => setcurrentCategory("day")}
           >
             For the day
           </h5>
           <h5
-            className="cursor-pointer"
+            className="cursor-pointer font-DelaGothicOne"
             onClick={() => setcurrentCategory("allTime")}
           >
             For all the time

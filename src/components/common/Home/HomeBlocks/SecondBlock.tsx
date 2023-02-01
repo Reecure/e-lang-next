@@ -8,7 +8,7 @@ const SecondBlock = () => {
     <div className="mb-10 py-6">
       <div className="flex flex-col justify-between sm:flex-row sm:items-center">
         <div className="">
-          <h2 className="w-72 mx-auto text-2xl text-center font-extrabold mt-5 sm:mb-5 sm:m-0 sm:text-left semi-lg:text-5xl semi-lg:w-98">
+          <h2 className="w-72 mx-auto text-2xl text-center font-DelaGothicOne font-extrabold mt-5 sm:mb-5 sm:m-0 sm:text-left semi-lg:text-5xl semi-lg:w-98">
             Increase your vocabulary
           </h2>
           <p className="w-80 mt-2 mb-4 text-gray-dark font-bold mx-auto text-base text-center  sm:m-0 sm:text-left md:mt-7 md:mb-9 semi-lg:text-lg ">

@@ -9,7 +9,12 @@ import { nanoid } from "nanoid";
 import { INavbar } from "@types";
 
 const navbarDesctop = [
-  { id: nanoid(), name: "Home", color: "text-primary-black", href: "/" },
+  {
+    id: nanoid(),
+    name: "Home",
+    color: "text-primary-black font-bold",
+    href: "/",
+  },
   {
     id: nanoid(),
     name: "Textbook",

@@ -31,7 +31,7 @@ const FirstBlock = () => {
           </div>
         </div>
         <div className="">
-          <h2 className="w-80  mx-auto text-2xl text-center font-extrabold mt-5 sm:mb-5 sm:m-0 sm:text-left semi-lg:text-5xl semi-lg:w-98">
+          <h2 className="w-80 mx-auto text-2xl text-center font-DelaGothicOne font-extrabold mt-5 sm:mb-5 sm:m-0 sm:text-left semi-lg:text-5xl semi-lg:w-98">
             Learn a language in a playful way
           </h2>
           <p className="w-90 mx-auto text-gray-dark font-bold text-base text-center sm:m-0 sm:text-left md:mt-7 md:mb-9 semi-lg:text-lg">

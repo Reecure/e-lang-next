@@ -17,6 +17,7 @@ module.exports = {
       },
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
+        DelaGothicOne: ["DelaGothicOne", "sans-serif"],
       },
       width: {
         0.5: "0.1rem",

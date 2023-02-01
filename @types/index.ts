@@ -12,6 +12,7 @@ export interface ILevel {
   name: string;
   borderColor: string;
   textColor: string;
+  bgcolor: string;
 }
 
 export interface INavbar {
